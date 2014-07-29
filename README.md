@@ -38,6 +38,12 @@ But you can easily redefine which widths you need, e.g.:
     $inuit-widths: 1, 2, 3, 12, 16;
 
 
+## Responsive Widths
+
+A [`grid-responsive-generator`](https://github.com/emagnier/trumps.widths-responsive-generator)
+module is also available.
+
+
 ## Licence
 
 [MIT](http://opensource.org/licenses/MIT) © Etienne Magnier
