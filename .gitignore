@@ -1,1 +1,4 @@
 .sass-cache
+*.css
+bower_components/
+inuit-test.scss

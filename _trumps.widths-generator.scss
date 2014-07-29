@@ -1,0 +1,107 @@
+/*!
+ * Widths generator plugin for inuitcss, by @EtienneMagnier
+ *
+ * Licence: MIT
+ * github.com/emagnier/trumps.widths-generator
+ */
+
+/*------------------------------------*\
+    #WIDTHS-GENERATOR
+\*------------------------------------*/
+
+/**
+ * Generate a series of width helper classes that you can use to size things
+ * like grid systems. Classes can take a fraction-like format (e.g. `.2/3`)
+ * or a spoken-word format (e.g. `two-thirds`). Toggle formats by overriding
+ * the `$inuit-use-fractions` variable defined below.
+ */
+
+// Predefine the variables below in order to alter and enable specific features.
+$inuit-widths:           1, 2, 3, 4, 5, 6, 8, 9, 10, 12 !default;
+$inuit-widths-namespace: $inuit-namespace !default;
+$inuit-use-fractions:    true !default;
+$inuit-widths-parts-map: (
+  1:  One,
+  2:  Two,
+  3:  Three,
+  4:  Four,
+  5:  Five,
+  6:  Six,
+  7:  Seven,
+  8:  Height,
+  9:  Nine,
+  10: Ten,
+  11: Eleven
+);
+$inuit-widths-wholes-map: (
+  1:  Whole,
+  2:  Half,
+  3:  Third,
+  4:  Quarter,
+  5:  Fifth,
+  6:  Sixth,
+  7:  Seventh,
+  8:  Eighth,
+  9:  Ninth,
+  10: Tenth,
+  11: Eleventh,
+  12: Twelfth
+);
+
+
+@mixin inuit-widths($prefix, $wholes...) {
+  $inuit-widths-base-selectors: () !default !global;
+
+  @each $whole in $wholes {
+    $part: 1;
+
+    /**
+     * #{map-get($inuit-widths-wholes-map, $whole) or $whole + th}.
+     */
+
+    @while $part < $whole or ($whole == $part and $part == 1) {
+      $part-selector: #{$part};
+      $whole-selector: #{$whole};
+      $width: $part / $whole * 100 + "%";
+      $selector: '[class~="#{$inuit-widths-namespace}#{$prefix}#{$part-selector}/#{$whole-selector}"]';
+
+      // Use spoken-words & check if the corresponding word exists in $inuit-widths-wholes-map.
+      @if $inuit-use-fractions == false {
+        @if map-get($inuit-widths-wholes-map, $whole) != null and map-get($inuit-widths-parts-map, $part) != null {
+          $part-selector: #{to-lower-case(map-get($inuit-widths-parts-map, $part))};
+          $whole-selector: #{to-lower-case(map-get($inuit-widths-wholes-map, $whole))};
+
+          // Pluralize the selector
+          @if $part > 1 {
+            $whole-selector: $whole-selector + 's';
+          }
+
+          $selector: '.#{$inuit-widths-namespace}#{$prefix}#{$part-selector}-#{$whole-selector}';
+        }
+
+        @else {
+          @warn $whole + " is an undefined spoken-word width in Inuitcss.";
+        }
+      }
+
+      // First uses of a specific width.
+      @if map-get($inuit-widths-base-selectors, #{$inuit-widths-namespace} + #{$prefix} + $width) == null {
+        $inuit-widths-base-selectors: map-merge($inuit-widths-base-selectors, (#{$inuit-widths-namespace} + #{$prefix} + $width: $selector)) !global;
+        #{$selector} {
+          width: #{$width} !important;
+        }
+      }
+
+      // Extend a previous selector which has the same width property.
+      @else {
+        #{$selector} {
+          @extend #{map-get($inuit-widths-base-selectors, #{$inuit-widths-namespace} + #{$prefix} + $width)};
+        }
+      }
+
+      $part: $part + 1;
+    }
+  }
+}
+
+@include inuit-widths("", $inuit-widths...);
