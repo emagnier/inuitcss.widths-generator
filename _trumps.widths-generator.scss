@@ -49,7 +49,7 @@ $inuit-widths-wholes-map: (
 ) !default;
 
 
-@mixin inuit-widths($prefix, $wholes...) {
+@mixin inuit-widths-generator($prefix, $wholes...) {
   $inuit-widths-base-selectors: () !default !global;
 
   @each $whole in $wholes {
@@ -104,4 +104,4 @@ $inuit-widths-wholes-map: (
   }
 }
 
-@include inuit-widths("", $inuit-widths...);
+@include inuit-widths-generator("", $inuit-widths...);
