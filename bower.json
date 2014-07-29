@@ -1,6 +1,6 @@
 {
   "name": "inuit-widths-generator",
-  "version": "0.3.0",
+  "version": "0.3.2",
   "homepage": "https://github.com/emagnier/trumps.widths-generator",
   "repository": {
     "type": "git",
@@ -18,6 +18,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "inuit-defaults": "~0.2.0"
+    "inuit-defaults": "~0.2.1"
   }
 }
