@@ -32,7 +32,7 @@ $inuit-widths-parts-map: (
   9:  Nine,
   10: Ten,
   11: Eleven
-);
+) !default;
 $inuit-widths-wholes-map: (
   1:  Whole,
   2:  Half,
@@ -46,7 +46,7 @@ $inuit-widths-wholes-map: (
   10: Tenth,
   11: Eleventh,
   12: Twelfth
-);
+) !default;
 
 
 @mixin inuit-widths($prefix, $wholes...) {
