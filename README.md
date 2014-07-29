@@ -36,3 +36,8 @@ By default it generate the same widths as the default `widths` inuitcss module.
 But you can easily redefine which widths you need, e.g.: 
 
     $inuit-widths: 1, 2, 3, 12, 16;
+
+
+## Licence
+
+[MIT](http://opensource.org/licenses/MIT) © Etienne Magnier
