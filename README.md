@@ -4,9 +4,9 @@ The `widths-generator` module is a **plugin for [inuitcss](http://inuitcss.com/)
 This is a simple file that generates a series of helper classes to drop widths onto
 elements such as grid systems.
 
-This module completely replace the default `widths` module of inuitcss.
-So it's not necessary to load the inuitcss `widths` module if you use the
-`widths-generator` plugin.
+This module **completely replace the default [`widths`](https://github.com/inuitcss/trumps.widths)
+module** of inuitcss. So it's not necessary to load both the default `widths` inuitcss module
+and the `widths-generator` module.
 
 
 ## Installation
