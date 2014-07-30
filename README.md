@@ -40,7 +40,7 @@ But you can easily redefine which widths you need, e.g.:
 
 ## Responsive Widths
 
-A [`grid-responsive-generator`](https://github.com/emagnier/trumps.widths-responsive-generator)
+A [`grid-responsive-generator`](https://github.com/emagnier/inuitcss.widths-responsive-generator)
 module is also available.
 
 
