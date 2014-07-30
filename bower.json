@@ -1,15 +1,15 @@
 {
   "name": "inuit-widths-generator",
   "version": "0.3.2",
-  "homepage": "https://github.com/emagnier/trumps.widths-generator",
+  "homepage": "https://github.com/emagnier/inuitcss-trumps.widths-generator",
   "repository": {
     "type": "git",
-    "url": "git://github.com/emagnier/trumps.widths-generator.git"
+    "url": "git://github.com/emagnier/inuitcss-trumps.widths-generator.git"
   },
   "authors": [
     "Etienne Magnier <etienne.magnier@gmail.com>"
   ],
-  "description": "An inuitcss plugin that generates a series of helper classes for dealing with widths in the inuitcss framework",
+  "description": "An inuitcss plugin that generates a series of helper classes for dealing with widths in the inuitcss framework.",
   "main": "_trumps.widths-generator.scss",
   "keywords": [
     "inuitcss",
