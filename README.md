@@ -17,6 +17,10 @@ Install using Bower:
 
     $ bower install --save inuit-widths-generator
 
+Install using npm:
+
+    $ npm install --save inuit-widths-generator
+
 
 ## Default options
 
